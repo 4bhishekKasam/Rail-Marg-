@@ -1,0 +1,14 @@
+.card {
+  border: .1px solid #cecece;
+  -webkit-box-shadow: 1px 5px 8px 2px rgba(173, 173, 173, 0.972);
+  box-shadow: 1px 5px 8px 2px rgba(173, 173, 173, 0.972);
+  margin-bottom: 10px;
+  text-align: center;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+.btn {
+  -webkit-box-shadow: 1px 5px 8px 2px rgba(173, 173, 173, 0.972);
+  box-shadow: 1px 5px 8px 2px rgba(209, 209, 209, 0.972);
+}

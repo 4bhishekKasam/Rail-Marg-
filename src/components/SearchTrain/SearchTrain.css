@@ -1,0 +1,13 @@
+input[type="text"],
+input[type="date"] {
+  background-color: transparent;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.container {
+ position: relative;
+  margin-top: 60px;
+}
