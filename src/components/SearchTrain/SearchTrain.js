@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+//import axios from "axios";
 import "./SearchTrain.css";
 
 export default class SearchTrain extends Component {
@@ -27,12 +27,11 @@ export default class SearchTrain extends Component {
   }
 
   fetchTrainList() {
-    axios
-      .get(
-        `https://api.railwayapi.com/v2/between/source/${this.state.from}/dest/${
-          this.state.to
-        }/date/${this.state.date}/apikey/sch5lj61yy/`
-      )
+    fetch(
+      `https://api.railwayapi.com/v2/between/source/${this.state.from}/dest/${
+        this.state.to
+      }/date/${this.state.date}/apikey/sch5lj61yy/`
+    )
       .then(res => res.json())
       .then(data => {
         this.setState({ trainList: data }, () =>
@@ -51,6 +50,52 @@ export default class SearchTrain extends Component {
 
   render() {
     const { trainList } = this.state;
+
+    let trains;
+    if (!trainList) {
+      trains = <div className="card">No Trains to display.</div>;
+    } else {
+      trains = trainList.trains.map(train => (
+        <div key={train.number}>
+          <div className="card">
+            <div className="row">
+              <div className="col-md-4 text-left">
+                Train Name : <b>{train.name}</b> ({train.number}){" "}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4 text-left">
+                From : {train.from_station.name} ({train.from_station.code}){" "}
+              </div>
+              <div className="col-md-4 text-left">
+                To : {train.to_station.name} ({train.to_station.code}){" "}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4 text-left">
+                Departure Time : {train.src_departure_time}
+              </div>
+              <div className="col-md-4 text-left">
+                Arrival Time : {train.dest_arrival_time}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4 text-left">
+                Travel Time : {train.travel_time}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4 text-left">
+                Days :{" "}
+                {train.days.map(day => (
+                  <span>{day.code}, </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ));
+    }
 
     return (
       <div className="container">
@@ -93,6 +138,16 @@ export default class SearchTrain extends Component {
             </div>
           </div>
         </form>
+
+        <div className="container text-center">
+          <div className="row text-center">
+            <h4>Total Trains : {trainList.total}</h4>
+          </div>
+          <div className="jumbotron">
+            <h4>Train List</h4>
+            {trains}
+          </div>
+        </div>
       </div>
     );
   }
