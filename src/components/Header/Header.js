@@ -35,23 +35,7 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      {/* <div
-          class="container "
-          style={{ border: "1px solid red" }}
-        >
-          <ul className="list-inline">
-            <li className="list-inline-item align-bottom" >
-              <a href="/" className="">
-                Train Info
-              </a>
-            </li>
-            <li className="list-inline-item align-bottom">
-              <a href="/" className="">
-                Train Route
-              </a>
-            </li>
-          </ul>
-        </div> */}
+     
     </nav>
   );
 }

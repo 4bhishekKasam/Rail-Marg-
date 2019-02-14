@@ -6,7 +6,7 @@ export default function LandingPage() {
       <div className="jumbotron">
         This Application provides passengers with useful information regarding
         the train route, all the trains passing between stations, and station
-        code
+        code.
       </div>
     </div>
   );
