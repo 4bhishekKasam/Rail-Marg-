@@ -21,14 +21,14 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav ">
-          <li className="nav-item">
+      <div className="container-fluid navbar-collapse">
+        <ul className=" list-inline text-center d-flex justify-content-center align-items-center">
+          <li className=" list-inline-item">
             <a className="text-dark nav-link" href="/searchtrain">
               SearchTrain
             </a>
           </li>
-          <li className="nav-item">
+          <li className="list-inline-item">
             <a className="text-dark nav-link" href="/trainroute">
               Train Route
             </a>

@@ -1,13 +1,22 @@
 input[type="text"],
 input[type="date"] {
   background-color: transparent;
-
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 
 .container {
- position: relative;
-  margin-top: 45px;
+  justify-content: center;
+  margin:45px auto ;
+}
+
+.row{
+  border:.0px solid red;
+}
+
+@media only screen and (max-width: 980px) {
+.col-md-3{
+ margin-bottom: 5px
+}
 }

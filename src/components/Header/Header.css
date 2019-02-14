@@ -5,9 +5,9 @@
   border-bottom-color: rgb(250, 221, 60);
 }
 .navbar-brand {
-  width: 110px;
-  height: 100px;
-  color: white;
+  width: 100px;
+  height: 80px;
+  color: black;
 }
 
 .nav-link {
@@ -19,9 +19,13 @@ ul {
   list-style-type: none;
 }
 
-.navbar-collapse{
-  border:1px solid red;
+ul > li > a {
+  text-decoration: none;
+}
+
+.navbar-collapse {
+  border: 1px solid red;
 
   background-color: rgb(233, 233, 233);
-  font-size: 20px
+  font-size: 20px;
 }

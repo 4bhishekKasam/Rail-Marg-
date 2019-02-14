@@ -53,42 +53,48 @@ export default class SearchTrain extends Component {
 
     let trains;
     if (!trainList) {
-      trains = <div className="card">No Trains to display.</div>;
+      trains = (
+        <div className="card">
+          <div className="row">
+            <div className="col-md-12 text-center">No Trains to display.</div>
+          </div>
+        </div>
+      );
     } else {
       trains = trainList.trains.map(train => (
         <div key={train.number}>
           <div className="card">
             <div className="row">
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left ">
                 Train Name : <b>{train.name}</b> ({train.number}){" "}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left">
                 From : {train.from_station.name} ({train.from_station.code}){" "}
               </div>
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left">
                 To : {train.to_station.name} ({train.to_station.code}){" "}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left">
                 Departure Time : {train.src_departure_time}
               </div>
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left">
                 Arrival Time : {train.dest_arrival_time}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left">
                 Travel Time : {train.travel_time}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-4 text-left">
+              <div className="col-md-6 text-left">
                 Days :{" "}
                 {train.days.map(day => (
-                  <span>{day.code}, </span>
+                  <span key={day.code}>{day.code}, </span>
                 ))}
               </div>
             </div>
@@ -100,7 +106,7 @@ export default class SearchTrain extends Component {
     return (
       <div className="container">
         <form onSubmit={this.onSubmitForm}>
-          <div className="row">
+          <div className="row align-items-center">
             <div className="col-md-3">
               <input
                 type="text"
@@ -131,7 +137,7 @@ export default class SearchTrain extends Component {
                 onChange={this.onChange}
               />
             </div>
-            <div className="col-md-1">
+            <div className="col-md-3">
               <button type="submit" className="btn btn-warning btn-lg">
                 Search Trains
               </button>
@@ -141,7 +147,14 @@ export default class SearchTrain extends Component {
 
         <div className="container text-center">
           <div className="row text-center">
-            <h4>Total Trains : {trainList.total}</h4>
+            <h4>
+              Total Trains :{" "}
+              {trainList.total ? (
+                <span className="badge badge-pill badge-dark">
+                  {trainList.total}
+                </span>
+              ) : null}
+            </h4>
           </div>
           <div className="jumbotron">
             <h4>Train List</h4>

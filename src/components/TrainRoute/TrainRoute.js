@@ -36,30 +36,35 @@ export default class TrainRoute extends Component {
     let list, route;
 
     if (!trainRouteList) {
-      list = <div className="card">No Trains Details to display.</div>;
-      route = <div className="card">No Routes to display. </div>;
+      list = (
+        <div className="card">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              No Trains Details to display.
+            </div>
+          </div>
+        </div>
+      );
+      route = (
+        <div className="card">
+          <div className="row">
+            <div className="col-md-12 text-center">No Routes to display. </div>
+          </div>
+        </div>
+      );
     } else {
       list = (
         <div className="card">
           <div className="row">
-            <div className="col-md-2 text-left col-md-offset-4">
-              Train Name :
-            </div>
-            <div className="col-md-2 text-left col-md-offset-0">
-              {trainRouteList.train.name}
+            <div className="col-md-6 text-left col-md-offset-3">
+              Train Name : <b>{trainRouteList.train.name}</b> (
+              {trainRouteList.train.number})
             </div>
           </div>
+
           <div className="row">
-            <div className="col-md-2 text-left col-md-offset-4">
-              Train Number :
-            </div>
-            <div className="col-md-2 text-left col-md-offset-0">
-              {trainRouteList.train.number}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-2 text-left col-md-offset-4">Class :</div>
-            <div className="col-md-2 text-left col-md-offset-0">
+            <div className="col-md-6 text-left col-md-offset-3">
+              Class : &nbsp;
               {trainRouteList.train.classes.map(trainClass => (
                 <span key={trainClass.code}>{trainClass.code},</span>
               ))}
@@ -72,30 +77,20 @@ export default class TrainRoute extends Component {
         <div key={routeInfo.station.name}>
           <div className="card">
             <div className="row">
-              <div className="col-md-2 text-left col-md-offset-4">
-                Station :
-              </div>
-              <div className="col-md-3 text-left col-md-offset-0">
-                {routeInfo.station.name}
+              <div className="col-md-6 text-left col-md-offset-3">
+                Station : {routeInfo.station.name}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-2 text-left col-md-offset-4">
-                Departure Time :
-              </div>
-              <div className="col-md-3 text-left col-md-offset-0">
-                {routeInfo.schdep}
+              <div className="col-md-6 text-left col-md-offset-3">
+                Departure Time : {routeInfo.schdep}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-2 text-left col-md-offset-4">
-                Arrival Time :
-              </div>
-              <div className="col-md-3 text-left col-md-offset-0">
-                {routeInfo.scharr}
+              <div className="col-md-6 text-left col-md-offset-3">
+                Arrival Time : {routeInfo.scharr}
               </div>
             </div>
-            <br />
           </div>
           <span className="glyphicon glyphicon-arrow-down" />
         </div>
