@@ -111,7 +111,7 @@ export default class SearchTrain extends Component {
               <input
                 type="text"
                 className="form-control input-lg"
-                placeholder="Journey from"
+                placeholder="Journey from (stn code)"
                 id="from"
                 value={this.state.from}
                 onChange={this.onChange}
@@ -121,7 +121,7 @@ export default class SearchTrain extends Component {
               <input
                 type="text"
                 className="form-control input-lg"
-                placeholder="Journey to"
+                placeholder="Journey to (stn code)"
                 id="to"
                 value={this.state.to}
                 onChange={this.onChange}
